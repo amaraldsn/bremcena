@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<!--
+  HEAD (METADADOS)
+-->
+
+<head>
+  <meta charset="UTF-8">
+  <title>Pantanal</title>
+  <link rel="icon" type="image/x-icon" href="../../images/favicons/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <!-- Imports CSS -->
+  <link rel="stylesheet" href="../input.css">
+  <link href="../output.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <!-- JS -->
+  <!-- JIT SUPPORT, for using peer-* below -->
+  <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
+  <!-- FIM Imports CSS -->
+
+  <!-- Imports FONTS-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;800&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chicle&display=swap" rel="stylesheet"> 
+  <!-- FIM Imports FONTS-->
+
+  <!-- Imports TAILWIND-->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+  <!-- FIM Imports TAILWIND-->
+
+  <!-- IMPORTS BOOTSTRAP ICONS-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- FIM IMPORTS BOOTSTRAP ICONS-->
+
+  <!--
+    ------------------------------------------------
+    | ESTILIZAÇÃO DO MENU MOBILE (HAMBURGUER)
+    ------------------------------------------------
+  -->
+  <!-- ESTILOS DE CONFIGURAÇÃO DO MENU SIDEBAR -->
+  <style>
+    .sidebar.left-0 {
+      left: initial;
+      right: 5px;
+      z-index: 999;
+    }
+
+    .menu-icon {
+      position: absolute;
+      right: 5px;
+      /* ou ajuste para a posição desejada na direita */
+      top: 25px;
+      /* ou ajuste para a posição desejada para baixo */
+    }
+
+    .menu-icon i {
+      font-size: 49px;
+      /* Ajuste o tamanho do ícone conforme necessário */
+    }
+
+    .overflow-x-auto::-webkit-scrollbar {
+    height: 5px;
+    }
+
+    .overflow-x-auto::-webkit-scrollbar-track {
+    background: #114425; /* Cor de fundo da trilha */
+    border-radius: 10px;
+    }
+
+    .overflow-x-auto::-webkit-scrollbar-thumb {
+    background: #ffe600; /* Cor da alça (thumb) */
+    border-radius: 10px;
+    }
+
+    @media (min-width: 649px) {
+      .sidebar {
+        display: none;
+      }
+
+      .menu-icon {
+        display: none;
+      }
+    }
+
+    .sidebar {
+      background-image: url('../../images/backgrounds/backgroundbremcenasidebar.png');
+      background-size: cover;
+      /* Ajusta a imagem para cobrir todo o fundo */
+      background-position: center;
+      /* Centraliza a imagem */
+    }
+  </style> <!-- FIM DO STYLE (ESTILIZAÇÃO DO MENU MOBILE)-->
+
+</head> <!-- FIM DOS METADADOS/ESTILIZAÇÃO-->
+
+
+<!--
+  BODY
+-->
+
+<!--
+    ------------------------------------------------
+    | CONFIGURAÇÃO DO MENU MOBILE (HAMBURGUER)
+    ------------------------------------------------
+-->
+
+<!-- ÍNICIO DO BODY TAILWIND -->
+
+<body class="bg-blue-600 font-[Poppins] relative">
+
+  <!--
+    SIDE BAR (MOBILE)
+  -->
+
+  <!-- ÍNICIO CONFIG DO ICON DO MENU (AS TRÊS BARRINHAS)-->
+  <span class="absolute text-white text-4xl cursor-pointer menu-icon" onclick="Openbar()">
+    <i class="bi bi-filter-left px-2 rounded-md menu-icon"></i> <!-- ICON-->
+  </span> <!-- FIM CONFIG DO ICON DO MENU (AS TRÊS BARRINHAS)-->
+
+  <!-- INÍCIO DA CONFIG MENU MOBILE VISUAL -->
+  <div class="sidebar fixed top-0 bottom-0 lg:left-0 left-[-300px] duration-1000
+    p-2 w-[300px] overflow-y-auto text-center bg-gray-900 shadow h-screen">
+    <div class="text-gray-100 text-xl">
+      <div class="p-2.5 mt-1 flex items-center rounded-md">
+        <i class="bi bi-x cursor-pointer lg:hidden" onclick="Openbar()"></i>
+        <h1 class="text-[15px] text-xl text-gray-200 font-bold">Menu </h1>
+        <iconify-icon icon="twemoji:flag-brazil" class="ml-auto text-xl"></iconify-icon>
+      </div>
+      <hr class="my-2 text-gray-600">
+
+
+      <div>
+        <div class="p-2.5 mt-3 flex items-center rounded-md 
+        px-4 duration-300 cursor-pointer  bg-black-700 border border-white">
+          <i class="bi bi-search text-sm"></i>
+          <input class="text-[15px] ml-4 w-full bg-transparent focus:outline-none" placeholder="Pesquisar" />
+        </div>
+        
+        <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-green-600 no-underline">
+          <i class="bi bi-house-door-fill"></i>
+          <a href="../../../index.html">
+            <span class="text-[17px] ml-4 text-gray-200">Página principal</span>
+          </a>         
+        </div>
+
+        <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-green-600">
+          <i class="bi bi-bookmark-fill"></i>
+          <span class="text-[15px] ml-4 text-gray-200">Favoritos</span>
+        </div>
+
+        <hr class="my-4 text-gray-600">
+        <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-green-600">
+          <i class="bi bi-heart-fill"></i>
+          <span class="text-[15px] ml-4 text-gray-200">Melhores filmes</span>
+        </div>
+
+        <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-green-600">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path
+              d="M12.17 9.53c2.307-2.592 3.278-4.684 3.641-6.218.21-.887.214-1.58.16-2.065a3.578 3.578 0 0 0-.108-.563 2.22 2.22 0 0 0-.078-.23V.453c-.073-.164-.168-.234-.352-.295a2.35 2.35 0 0 0-.16-.045 3.797 3.797 0 0 0-.57-.093c-.49-.044-1.19-.03-2.08.188-1.536.374-3.618 1.343-6.161 3.604l-2.4.238h-.006a2.552 2.552 0 0 0-1.524.734L.15 7.17a.512.512 0 0 0 .433.868l1.896-.271c.28-.04.592.013.955.132.232.076.437.16.655.248l.203.083c.196.816.66 1.58 1.275 2.195.613.614 1.376 1.08 2.191 1.277l.082.202c.089.218.173.424.249.657.118.363.172.676.132.956l-.271 1.9a.512.512 0 0 0 .867.433l2.382-2.386c.41-.41.668-.949.732-1.526l.24-2.408Zm.11-3.699c-.797.8-1.93.961-2.528.362-.598-.6-.436-1.733.361-2.532.798-.799 1.93-.96 2.528-.361.599.599.437 1.732-.36 2.531Z" />
+            <path
+              d="M5.205 10.787a7.632 7.632 0 0 0 1.804 1.352c-1.118 1.007-4.929 2.028-5.054 1.903-.126-.127.737-4.189 1.839-5.18.346.69.837 1.35 1.411 1.925Z" />
+          </svg>
+          <span class="text-[15px] ml-4 text-gray-200">Lançamentos de filmes</span>
+        </div>
+
+        <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-green-600">
+          <i class="bi bi-book-half"></i>
+          <span class="text-[15px] ml-4 text-gray-200">Livros</span>
+        </div>
+
+        <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-green-600">
+          <i class="bi bi-tv"></i>
+          <span class="text-[15px] ml-4 text-gray-200">Melhores Séries</span>
+        </div>
+
+        <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-green-600">
+          <i class="bi bi-dpad-fill"></i>
+          <span class="text-[15px] ml-4 text-gray-200">Novelas</span>
+        </div>
+
+        <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-green-600">
+          <i class="bi bi-file-earmark-person-fill"></i>
+          <span class="text-[15px] ml-4 text-gray-200">Documentários</span>
+        </div>
+
+        <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-green-600">
+          <i class="bi bi-controller"></i>
+          <span class="text-[15px] ml-4 text-gray-200">Jogos</span>
+        </div>
+
+        <hr class="my-4 text-gray-600">
+        <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-green-600">
+          <i class="bi bi-chat-left-text-fill"></i>
+          <div class="flex justify-between w-full items-center" onclick="dropDown()">
+            <span class="text-[15px] ml-4 text-gray-200">Contate-nos</span>
+            <span class="text-sm rotate-180" id="arrow">
+              <i class="bi bi-chevron-down"></i>
+            </span>
+          </div>
+        </div>
+        <div class="leading-7 text-left text-sm font-thin mt-2 w-4/5 mx-auto hidden" id="submenu">
+          <a href="mailto:dznamaral@gmail.com">
+            <h1 class="cursor-pointer p-2 hover:bg-blue-700 rounded-md mt-1">Gmail</h1>
+          </a>
+          <a href="https://api.whatsapp.com/send/?phone=5583982018994&text&type=phone_number&app_absent=0">
+            <h1 class="cursor-pointer p-2 hover:bg-blue-700 rounded-md mt-1">Whatsapp</h1>
+          </a>
+          <a href="https://www.instagram.com/amaraldsn/">
+            <h1 class="cursor-pointer p-2 hover:bg-blue-700 rounded-md mt-1">Instagram</h1>
+          </a>
+        </div>
+
+
+        <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-green-600">
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span class="text-[15px] ml-4 text-gray-200">Logout</span>
+        </div>
+
+      </div>
+    </div>
+  </div> <!-- FIM DA CONFIG VISUAL DO MENU MOBILE -->
+
+  <!--
+  ------------------------------------------------
+  | SCRIPT BÁSICO DO MENU HAMBURGUER (HAMBURGUER)
+  ------------------------------------------------
+  -->
+
+  <!-- INÍCIO DA CONFIG INTERATIVA DO MENU MOBILE -->
+  <script>
+    function dropDown() {
+      document.querySelector('#submenu').classList.toggle('hidden');
+      document.querySelector('#arrow').classList.toggle('rotate-0');
+    }
+
+    function Openbar() {
+      const sidebar = document.querySelector('.sidebar');
+      sidebar.classList.toggle('left-0');
+    }
+
+  </script> <!-- FIM DA CONFIG INTERATIVA DO MENU MOBILE -->
+
+  <!--
+  ------------------------------------------------
+  | FUNDO DO BRASIL EM CENA
+  ------------------------------------------------
+  -->
+
+  <!-- CASO QUEIRA AJUSTAR A OPACIDADE DELE, ISAIAS OYU ANDREY, SÓ PEGAR A CLASSE E PROCURAR NO OUTPUT.CSS, E REGULAR. SE EU NÃO ME ENGANE, ESTÁ EM 0.9 A OPACITY-->
+  <div id="background" class="relative">
+    <!-- Imagem de fundo com opacidade máxima -->
+    <img src="https://sitectv.com/wp-content/uploads/2022/11/pantanal-sera-exibida-no-chile.jpg" class="papeldeparede">
+    <!-- Fundo preto com opacidade -->
+    <div class="black-overlay absolute inset-0 bg-black opacity-75"></div>
+  </div>
+  
+  <div id="background2" class="relative">
+    <!-- Bandeira do Brasil com opacidade reduzida -->
+    <img src="../../images/backgrounds/bandeiradobrasilmesclagem.png" class="papeldeparede2">
+  </div>
+
+  <div id="background3" class="relative">
+    <!-- Bandeira do Brasil com opacidade reduzida -->
+    <img src="../../images/backgrounds/black-color-solid-background-1920x1080.png" class="papeldeparede3">
+  </div>
+
+
+  <div id="app">
+
+    <!--
+      HEADER
+  -->
+
+    <header>
+
+      <!--
+      ------------------------------------------------
+      | NAVIGATION
+      ------------------------------------------------
+      -->
+      <a href="../../../index.html">
+        <img src="../../images/logos/Logo sem fundo.png" class="logobrasilemcena hidden md:block">
+      </a>
+      
+      <!-- AQUI É A LOGO QUE FICA NO CANTINHO (NO MENU DESKTOP, NO CASO)-->
+
+      <!-- ----------------------------------------------------------- -->
+      <!-- INÍCIO DA UL (NO CASO, TODA O TEXTO DA NAVEGAÇÃO SUPERIOR)-->
+      <ul class="navigation hidden md:flex">
+        <li>
+          <a href="../../../index.html" class="navigation__link">Página Principal</a>
+        </li>
+        <li>
+          <a href="#" class="navigation__link">Documentários</a>
+        </li>
+        <li>
+          <a href="#" class="navigation__link">Filmes</a>
+        </li>
+        <li>
+          <a href="#" class="navigation__link">Séries</a>
+        </li>
+        <li>
+          <a href="#" class="navigation__link">Livros</a>
+        </li>
+        <li>
+          <a href="#" class="navigation__link">Jogos</a>
+        </li>
+        <li>
+          <a href="#" class="navigation__link">Novelas</a>
+        </li>
+        <!-- ------------------------------------------------------------------------------------------- -->
+        <!-- DROPDOWN QUE, QUANDO PASSADO O MOUSE EM CIMA, EXIBE OUTRAS OPÇÕES DE CATEGORIAS-->
+        <li class="dropdown"> <!-- INÍCIO DA LI DO DROPWDOWN (CONTÉUDO VISUAL SEM ESTILIZAÇÃO DO DROPDOWN)-->
+          <a href="#" class="navigation__link">Categorias</a>
+          <div class="dropdown-menu">
+            <a href="">Terror</a>
+            <a href="">Comédia</a>
+            <a href="">Ação</a>
+            <a href="../../../categorias.html">Drama</a>
+          </div>
+        </li> <!-- FIM DA LI DO DROPWDOWN (CONTÉUDO VISUAL SEM ESTILIZAÇÃO DO DROPDOWN)-->
+        <!-- -------------------------------------------------------------------------------------------- -->
+
+      </ul> <!-- FIM DA UL (NO CASO, TODA O TEXTO DA NAVEGAÇÃO SUPERIOR)-->
+
+      <!-- ----------------------------------------------------------- -->
+      <!-- ICONES DA NAVEGAÇÃO, ICONÉ DE CONFIGURAÇÕES, LOGIN, ETC -->
+
+      <!-- CONFIGURAÇÕES -->
+      <div class="navigation__social hidden md:flex">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
+          <mask id="ipSConfig0">
+            <g fill="none" stroke-linejoin="round" stroke-width="4">
+              <path fill="#fff" stroke="#fff" d="m24 4l-6 6h-8v8l-6 6l6 6v8h8l6 6l6-6h8v-8l6-6l-6-6v-8h-8l-6-6Z" />
+              <path fill="#000" stroke="#000" d="M24 30a6 6 0 1 0 0-12a6 6 0 0 0 0 12Z" />
+            </g>
+          </mask>
+          <path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipSConfig0)" />
+        </svg>
+        <!-- LOGIN -->
+        <a href="../login.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="currentColor" fill-rule="evenodd"
+              d="M8 7a4 4 0 1 1 8 0a4 4 0 0 1-8 0Zm0 6a5 5 0 0 0-5 5a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3a5 5 0 0 0-5-5H8Z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
+        <!-- LUPA DE PESQUISA-->
+        <svg class="lupinha" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path fill="currentColor"
+            d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z" />
+        </svg>
+        <!-- BANDEIRA DO BRASIL-->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 36 36">
+          <path fill="#009B3A" d="M36 27a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V9a4 4 0 0 1 4-4h28a4 4 0 0 1 4 4v18z" />
+          <path fill="#FEDF01" d="M32.728 18L18 29.124L3.272 18L18 6.875z" />
+          <circle cx="17.976" cy="17.924" r="6.458" fill="#002776" />
+          <path fill="#CBE9D4"
+            d="M12.277 14.887a6.406 6.406 0 0 0-.672 2.023c3.995-.29 9.417 1.891 11.744 4.595c.402-.604.7-1.28.883-2.004c-2.872-2.808-7.917-4.63-11.955-4.614z" />
+          <path fill="#88C9F9" d="M12 18.233h1v1h-1zm1 2h1v1h-1z" />
+          <path fill="#55ACEE" d="M15 18.233h1v1h-1zm2 1h1v1h-1zm4 2h1v1h-1zm-3 1h1v1h-1zm3-6h1v1h-1z" />
+          <path fill="#3B88C3" d="M19 20.233h1v1h-1z" />
+        </svg>
+      </div>
+
+      <!-- FIM ICONES DA NAVEGAÇÃO, ICONÉ DE CONFIGURAÇÕES, LOGIN, ETC -->
+
+    </header> <!-- FIM DA HEADER-->
+
+    <!--
+      MAIN
+    -->
+    <main>
+
+      <!--
+      ------------------------------------------------
+      | CORPO DO SITE
+      ------------------------------------------------
+      -->
+      <div class="main__info"> <!-- INÍCIO DA DIV CLASSE MAIN__INFO -->
+
+        <!-- TEXTOS DA SINOPSE E TÍTULO-->
+        <h1 style="margin-bottom: 0.500rem;" class="font-extrabold text-[400%] font-luckiest">Pantanal</h1>
+        <!-- <h1 style="margin-bottom: 0.500rem;" class="font-extrabold text-[400%] font-luckiest">Tempos</h1> -->
+        <h4>
+          <span>2023</span>
+          <span><i>+14</i></span>
+          <span>Novela</span>
+          <span>Drama</span>
+        </h4>
+        <p>
+          Pantanal é uma telenovela brasileira produzida pela TV Globo e exibida de 28 de março a 7 de outubro de 2022, em 167 capítulos. Substituiu Um Lugar ao Sol e foi substituída por Travessia, sendo a 19.ª "novela das nove" da emissora. É um remake da telenovela de mesmo nome, criada e escrita por Benedito Ruy Barbosa e exibida originalmente na Rede Manchete em 1990. Adaptada por Bruno Luperi, tem direção de Davi Lacerda, Noa Bressane, Roberta Richard, Walter Carvalho e Cristiano Marques.[5] A direção artística é de Rogério Gomes e Gustavo Fernandez.
+        </p>
+        <!-- BOTÕES DE PLAY E FAVORITOS-->
+        <div class="buttons">
+          <a href="https://globoplay.globo.com/pantanal/t/wM9wJbjHJN/"><i class="fa fa play" aria-hidden="true"></i> ▶
+            Assistir</a>
+          <a href="#"><i class="fa fa plus" aria-hidden="true"></i>+
+            Favoritos</a>
+        </div>
+
+        <!-- ----------------------------------------------------------- -->
+        <!-- IFRAME PARA TELAS MENORES OU IGUAIS A 648PX (ESSA CONFIG GARANTE QUE NESSAS DIMENSÕES AQUELA INCORPORAÇÃO QUE O PROFESSOR TINHA PEDIDO QUEBRE E JOGUE O TRAILER PRA BAIXO DOS BOTÕES DE PLAY E FAVORITOS)-->
+
+        <div class="lg:hidden mx-4 my-1 ml-0">
+          <!-- Este bloco será exibido apenas em telas menores ou iguais a 648 pixels -->
+          <iframe width="100%" height="315" src="https://www.youtube.com/embed/I9caf45izB0?si=DymJcpD05--cLNoG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <!-- FIM PARA TELAS MENORES OU IGUAIS A 648PX (ESSA CONFIG GARANTE QUE NESSAS DIMENSÕES AQUELA INCORPORAÇÃO QUE O PROFESSOR TINHA PEDIDO QUEBRE E JOGUE O TRAILER PRA BAIXO DOS BOTÕES DE PLAY E FAVORITOS)-->
+        <!-- ----------------------------------------------------------- -->
+
+        <!-- PARTE DE STREAMING (LOGO DO STARPLUS) -->
+
+        <div class="streaming"> <!-- INÍCIO DA DIV STREAMING -->
+
+          <!-- TEXTO-->
+          <h2 class="mt-7 text-2xl sm:text-2xl text-white font-chicle mb-2">Transmissões</h2> <!-- FIM-->
+
+          <!-- A PRÓPRIA LOGO-->
+          <a href="https://globoplay.globo.com/" alt="Link Starplus">
+            <svg version="1.1" baseProfile="basic" width="120" height="120" id="Camada_1"
+            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1320.5 277"
+            xml:space="preserve">
+              <g>
+                <path fill="#F61E22" d="M0,130.1c0.3-1.5,0.8-2.9,1-4.4c2.4-18.3,9.4-34.5,22.7-47.6c9.1-9,20.2-14.1,32.6-16.7
+                  c7.7-1.6,15.4-2.1,23.1-1.3c12.2,1.2,23.2,5.7,33,13c1.7,1.3,3.4,2.7,5,4.1c0.7,0.5,1.4,1,2.4,1.6c0.4-0.9,0.8-1.6,1.1-2.3
+                  c0.6-1.6,1.1-3.3,1.9-4.9c2.3-5.1,6.3-8.1,11.8-8.7c5.5-0.6,11-0.6,16.5,0.3c5.1,0.9,8.2,3.7,9.1,8.9c0.5,2.6,0.6,5.2,0.6,7.9
+                  c0.1,5.3,0,10.6,0,15.8c0,12.3,0.1,24.6,0.1,36.9c0.1,22.5,0.4,44.9,0.1,67.4c-0.2,18.5-6.1,35.2-17.7,49.7
+                  c-10.4,13-24.1,21-40.2,25c-4,1-8.1,1.6-12.2,2.5c-1.1,0.2-2.1,0.6-3.1,1c-6.9,0-13.8,0-20.6,0c-1.9-0.5-3.8-1.1-5.7-1.4
+                  c-12.9-2-25.4-5.5-37.3-11c-5.1-2.3-10.1-4.8-14.9-7.7c-5.7-3.4-7.3-8.4-4.8-14.4c2.3-5.8,5.7-10.9,9.9-15.5
+                  c2.2-2.5,5.1-3.3,8.5-2.8c3.1,0.5,5.8,1.8,8.4,3.3c5.6,3.1,11.5,5.7,17.6,7.6c13.7,4.4,27.6,5.3,41.6,1.7
+                  c13.6-3.5,22.2-12.1,25.6-25.8c1.5-6.1,1.8-12.3,1.5-18.6c0-0.5-0.3-1.3-0.6-1.4c-0.5-0.1-1.1,0.2-1.7,0.4
+                  c-0.3,0.1-0.5,0.4-0.7,0.6c-5.9,4.9-12,9.3-19.3,11.8c-12.1,4.1-24.4,5.7-37.1,3.6c-20.6-3.4-36.5-14-47.3-31.8
+                  c-5.8-9.6-8.7-20.2-9.9-31.3c-0.2-1.6-0.7-3.1-1-4.6C0,137.4,0,133.8,0,130.1z M45,134.9c0.2,2.6,0.2,5.3,0.5,7.9
+                  c0.3,2.6,0.8,5.2,1.5,7.8c3.4,12,11.1,19.7,23.4,22.6c9.5,2.3,18.8,1.3,27.6-2.8c7.6-3.4,13.2-8.9,16.5-16.7
+                  c4.1-9.8,5-19.9,2.1-30.3c-3.3-11.8-10.3-20.3-21.9-24.6c-8.4-3.2-17-3.3-25.7-0.8c-10.3,3-17.3,9.6-21.1,19.6
+                  C45.8,123.3,45,129,45,134.9z"/>
+                <path fill="#F61E22" d="M449.3,0c2.3,0.3,4.6,0.7,6.8,1c5.6,0.8,8.2,3.3,9,8.9c0.5,3.3,0.8,6.7,0.8,10c0.1,13.4,0,26.7-0.1,40.1
+                  c0,5.4-0.1,10.9-0.1,16.3c0,0.8-0.4,2,0.7,2.3c0.6,0.1,1.4-0.4,2-0.9c5.9-4.8,12.2-9.1,19.1-12.3c8.6-4,17.7-5.3,27.1-5.3
+                  c10.7,0,21,1.6,30.7,6.3c16.1,7.8,26.5,20.5,31.6,37.6c3.1,10.3,4.9,20.8,5.5,31.6c0.7,12.3-0.5,24.5-4.5,36.2
+                  c-7.7,22.7-22.9,37.9-46.3,43.8c-23.1,5.9-44.2,1-62.9-13.9c-1.7-1.4-3.4-2.9-5.2-4.3c-0.1-0.1-0.3,0-0.7-0.1
+                  c-0.2,1-0.5,2.1-0.7,3.1c-0.5,2.5-1.2,5-2.6,7.2c-2.6,3.9-6.4,5.9-11,6.4c-5.7,0.6-11.3,0.5-17-0.5c-0.6-0.1-1.3-0.2-1.9-0.4
+                  c-4.6-1.1-6.8-3.7-7.2-8.4c-0.1-1.7-0.2-3.4-0.2-5c0-61.4,0-122.7,0-184.1c0-1.6,0-3.2,0.2-4.8c0.5-5.8,3.9-9.4,9.6-10.2
+                  c1.2-0.2,2.4-0.1,3.6-0.2c0.9-0.1,1.7-0.3,2.5-0.5C441.9,0,445.6,0,449.3,0z M539.2,138.8c0-7.4-1-13.4-3.5-19.7
+                  c-4.1-10.6-11.3-17.8-22.6-20.5c-4.6-1.1-9.3-1.5-14-1.2c-11,0.8-19.9,5.5-26,14.9c-4.9,7.5-7.4,15.7-7.4,24.7
+                  c0,7.1,1.4,14,3.6,20.7c2.5,7.3,7.1,13,13.7,17c6.5,4,13.7,5.7,21.3,5.4c13.8-0.5,23.8-6.8,30.2-19
+                  C538.1,154.1,539.3,146.6,539.2,138.8z"/>
+                <path fill="#F61E22" d="M1320.5,77.8c-1.4,3.3-3,6.5-4.3,9.8c-17.3,44.3-34.5,88.6-53,132.4c-6,14.3-13.7,27.6-23.4,39.7
+                  c-8.4,10.5-19.5,16-32.8,17.2c-13.5,1.2-25.7-2.3-36.3-10.7c-1.9-1.5-3.7-3.3-5.3-5.2c-2.7-3.2-3.2-7-1.5-10.8
+                  c2.6-5.7,6.2-10.6,10.9-14.7c3.1-2.6,6.6-3.1,10.3-1.6c2.6,1,5.1,2.3,7.7,3.4c1.8,0.7,3.6,1.3,5.4,1.8c3.2,0.9,6.3,0.2,8.9-1.7
+                  c2.1-1.4,4-3.2,5.7-5c4.6-4.9,7.8-10.7,10.9-16.6c0.9-1.8,0.5-3.4-0.3-5.1c-2-4.3-3.9-8.6-5.9-12.9c-18-39.3-35.9-78.6-53.9-118
+                  c-0.5-1.2-1.1-2.3-1.4-3.6c-2.1-7.1,2.2-13.2,9.7-13.4c5.4-0.2,10.9-0.1,16.3-0.1c2.7,0,5.4,0.1,8.2,0c5.8-0.1,9.7,2.6,11.8,8
+                  c2.3,5.9,4.6,11.9,7,17.9c9.4,23.9,18.9,47.9,28.3,71.8c0.3,0.6,0.7,1.2,1,1.9c1.3-0.6,1.2-1.7,1.5-2.5c4.7-13.4,9.3-26.9,14-40.3
+                  c5.5-15.9,11-31.7,16.4-47.6c0.3-0.9,0.7-1.8,1-2.7c1.7-4.3,4.9-6.4,9.5-6.4c5.8,0,11.7,0,17.5,0c1.8,0,3.5-0.1,5.3,0
+                  c4.2,0.1,7.8,1.5,10.3,5.1c0.1,0.1,0.3,0.1,0.4,0.2C1320.5,71.4,1320.5,74.6,1320.5,77.8z"/>
+                <path fill="#F61E22" d="M208.8,0c1.1,0.2,2.2,0.4,3.3,0.5c2.5,0.3,5,0.3,7.4,0.8c5.4,0.9,7.7,3.7,7.9,9.2
+                  c0.2,6.4,0.5,12.8,0.5,19.2C228,55,228,80.4,228,105.9c0,29.9,0,59.8-0.1,89.7c0,3.4-0.2,6.7-0.5,10.1c-0.4,4.7-2.6,7.3-7.3,7.7
+                  c-5.9,0.5-11.8,0.7-17.7,0.8c-2.9,0.1-5.7-0.4-8.6-0.7c-5-0.5-7.6-2.8-8.4-7.7c-0.6-3.7-1.1-7.5-1.1-11.2
+                  c-0.1-58.7-0.1-117.4,0-176.1c0-3.2,0.3-6.4,0.6-9.6c0.5-4.5,2.6-6.8,7-7.6c2.5-0.5,5.1-0.6,7.6-0.9c1-0.1,2-0.3,3-0.5
+                  C204.6,0,206.7,0,208.8,0z"/>
+                <path fill="#F61E22" d="M818,200.2c0,0.9,0,1.7,0,2.6c0,16.2,0,32.5,0,48.7c0,4,0,8-0.1,12c-0.1,1.7-0.4,3.3-0.8,5
+                  c-1.2,4.4-3.9,6.7-8.4,6.9c-6.9,0.3-13.7,0.5-20.6,0.5c-2.1,0-4.3-0.4-6.4-0.9c-3-0.7-5.1-2.7-6-5.6c-0.7-2.1-1-4.3-1.3-6.5
+                  c-0.2-1.7-0.1-3.4-0.1-5c0-49.4,0-98.9,0-148.3c0-10.5-0.1-21,0-31.4c0-2.4,0.1-4.8,0.7-7.1c1-4,3.5-6.4,7.8-7.1
+                  c6.8-1,13.5-1.4,20.3-0.4c5.2,0.7,8.6,3.6,10.2,8.6c0.7,2.2,0.9,4.5,1.3,6.8c0.1,0.4,0,0.8,0.1,1.2c0.3,1.5,1.5,1.9,2.6,0.9
+                  c0.7-0.6,1.2-1.3,1.8-1.9c9.3-8.1,19.4-14.7,31.6-17.3c7.7-1.7,15.5-2,23.4-1.2c8,0.7,15.6,2.6,22.8,6
+                  c13.4,6.3,23.1,16.4,29.6,29.6c5,10.5,8.1,21.5,9.3,33.1c1.9,18.4-1.3,36-9.6,52.6c-9.4,18.8-24.6,30.2-45.3,34.3
+                  c-7.6,1.5-15.2,2.1-22.9,1.3c-8.5-0.9-16.5-3.5-24.1-7.5c-4.6-2.5-8.9-5.3-13-8.6c-0.6-0.5-1.4-0.9-2.1-1.4
+                  C818.4,200,818.2,200.1,818,200.2z M817.7,136.3c0.1,6.3,0.9,12.3,2.6,18.3c2.2,7.5,5.8,14.1,12.3,18.6c8.8,6.2,18.6,8.4,29.1,6.6
+                  c12.7-2.2,21.5-9.7,26.2-21.5c6.3-15.4,4.8-30.5-2.8-45.1c-3.5-6.7-9.1-11.4-16.3-13.7c-7.1-2.3-14.5-2.9-21.8-1.3
+                  c-14.3,3-23.3,12-27.4,25.9C818.6,128,818.3,132.2,817.7,136.3z"/>
+                <path fill="#F61E22" d="M323.4,60c14.3-0.2,26.9,2,38.9,7.5c21.9,10.1,35.4,27,40.7,50.5c1.5,6.6,2.4,13.2,2.4,20
+                  c0.3,19.4-5.9,36.5-17.9,51.7c-10.7,13.7-24.8,21.8-41.5,25.8c-10,2.3-20,3.2-30.2,2.3c-12.6-1.1-24.3-5.2-35.2-11.6
+                  c-17.4-10.1-28-25.1-32.9-44.4c-2.6-10.2-3.7-20.6-2.8-31.1c0.9-10.7,4.1-20.8,9.2-30.3c11.2-20.8,28.5-33.3,51.5-38.4
+                  C311.9,60.6,318.2,59.7,323.4,60z M288.3,134.7c0,13.7,2.6,22.8,7.5,30.3c3.3,5,7.6,8.8,13,11.4c6.7,3.2,13.8,4.5,21.2,3.8
+                  c8.3-0.9,15.3-4.2,20.8-10.6c3.4-4,6.1-8.4,7.7-13.4c3-9.3,3.9-18.8,2-28.4c-0.5-2.6-1.2-5.1-2.1-7.6c-6-16.4-22.6-25.7-39.9-22.5
+                  c-10.6,2-18.3,7.9-23.8,17C290.2,121.9,288.4,130,288.3,134.7z"/>
+                <path fill="#F61E22" d="M758.2,137.9c0,21.5-7,38.9-20.1,54.1c-10.6,12.3-24,19.8-39.8,23.4c-9.6,2.2-19.3,3.1-29.1,2.3
+                  c-15.4-1.2-29.4-6.5-42-15.4c-15.4-10.8-24.2-25.8-28.1-43.9c-2-9.3-2.7-18.7-1.9-28.1c1.2-13.3,5.8-25.5,13.3-36.6
+                  c11.7-17.3,28-27.4,48.2-31.7c10.5-2.3,21.1-2.3,31.7-1c13.2,1.6,25.3,5.9,36.2,13.5c15.8,11.1,25.2,26.2,29.3,44.9
+                  C757.4,126,758,132.7,758.2,137.9z M713.9,138.7c0.1-7-1.3-13.8-3.9-20.4c-3.3-8.2-8.6-14.6-17-17.9c-8.2-3.3-16.6-4-25.2-1.7
+                  c-12,3.1-19.9,11.1-24.1,22.5c-4.3,11.8-4.2,23.9,0,35.7c3.5,9.8,10.1,16.9,19.9,20.8c6.8,2.7,13.8,3.2,21,2
+                  c11.1-1.9,19.2-7.9,24-18.2C712.1,154.3,713.9,146.7,713.9,138.7z"/>
+                <path fill="#F61E22" d="M1120.1,196.1c-1.8,0.1-2.4,1.2-3.3,2.1c-5.6,5.7-12,10.3-19.2,13.7c-6.3,2.9-13,4.5-19.8,5.4
+                  c-9.3,1.2-18.5,1-27.6-1.4c-6.7-1.7-13.1-4.2-18.8-8.2c-10.5-7.3-16.1-17.5-17.6-30.1c-0.7-6.3-0.4-12.5,1.2-18.6
+                  c2.7-10.5,8.9-18.5,18-24.3c7.7-5,16.2-7.9,25.2-9.5c10.3-1.8,20.7-1.7,31.1-0.6c8,0.8,16,2.4,23.8,4.1c2.5,0.6,3,0.2,3-2.4
+                  c0-4.4-0.7-8.6-2.1-12.7c-3.5-9.9-10.6-16-20.9-17.7c-15.1-2.6-29.8-1.2-43.7,5.9c-3,1.5-6.2,2.6-9.6,2.8c-4,0.3-7.3-0.9-9.6-4.2
+                  c-2-3-3.9-6-5.8-9.1c-0.2-0.3-0.3-0.6-0.4-0.9c-3-6.2-1.9-10.7,3.8-14.5c5.3-3.5,10.8-6.5,16.7-8.9c13.1-5.5,26.9-8.1,41.1-8
+                  c12.8,0.1,25.1,2.8,36.8,7.7c16.9,7.1,27.4,19.9,32.4,37.4c2,7.1,2.8,14.3,2.8,21.6c0,24.9-0.1,49.7-0.2,74.6
+                  c0,1.9-0.2,3.8-0.6,5.7c-0.7,3.4-2.9,5.8-6.2,6.7c-2.8,0.7-5.6,1.2-8.5,1.4c-3.4,0.2-6.9,0-10.3-0.4c-4-0.5-7-2.7-8.3-6.7
+                  c-1-2.9-1.7-5.8-2.6-8.7C1120.8,197.7,1120.4,196.9,1120.1,196.1z M1084.8,151c-2.5,0.2-5.1,0.3-7.6,0.7c-3.4,0.6-6.8,1.2-10,2.4
+                  c-6,2.1-9.9,6.6-11.8,12.7c-0.3,1-0.5,2.1-0.3,3c0.9,4,2.6,7.7,5.7,10.6c4.2,4,9.5,5.5,15.1,5.8c13.5,0.6,24.2-4.9,32.3-15.5
+                  c2.6-3.5,4.4-7.4,5.3-11.7c0.5-2.4,0.1-3.2-2.1-3.8C1102.7,153.1,1093.9,151.3,1084.8,151z"/>
+                <path fill="#F61E22" d="M953.4,109c0-26.5,0-52.9,0-79.4c0-6.6,0.1-13.3-0.1-19.9c-0.3-7.3,4-10.7,11.1-8.5
+                  c5.8,1.9,11.6,4.1,17.4,6.2c1.2,0.4,2.3,1,3.6,1.4c6.5,2.3,9.3,7.2,9.7,13.8c0.1,1.3,0.1,2.6,0.1,3.8c0,12.1,0,24.2,0,36.2
+                  c0,43.1,0,86.2,0,129.3c0,1.9-0.1,3.8-0.4,5.7c-0.9,5.1-3.7,8.9-8.4,11c-6.6,2.9-13.3,5.4-20,7.9c-2.4,0.9-5,1.1-7.5,0.4
+                  c-3.4-0.9-5.2-3-5.3-6.5c-0.1-3.4,0-6.9,0-10.3c0-14.4,0-28.8,0-43.2C953.3,141,953.3,125,953.4,109C953.4,109,953.4,109,953.4,109
+                  z"/>
+              </g>
+              </svg>
+
+          </a> <!-- FIM DA LOGO DO SERVIÇO DE STREAMING-->
+
+          <div class="app">
+          </div>
+
+
+
+          <!-- ------------------------------------------------------------------------------------------------------------ -->
+          <!-- JÁ ESSE IFRAME É O PADRÃO DE DESKTOP, ELE APARECE DO LADO DA SINOPSE, DIFERENTE DO OUTRO QUE, EM TELAS MENORES, ELE JOGA PŔA BAIXO -->
+
+          <div class="hidden lg:block float-right absolute w-6/12 max-w-[400px] right-[400px] top-[260px]">
+            <!-- Este bloco será exibido apenas em telas maiores que 648 pixels -->
+            <iframe width="516" height="315" src="https://www.youtube.com/embed/I9caf45izB0?si=DymJcpD05--cLNoG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+
+          <!-- FIM | JÁ ESSE IFRAME É O PADRÃO DE DESKTOP, ELE APARECE DO LADO DA SINOPSE, DIFERENTE DO OUTRO QUE, EM TELAS MENORES, ELE JOGA PŔA BAIXO -->
+          <!-- ------------------------------------------------------------------------------------------------------------- -->
+
+
+
+          <!-- CARROSSEL DE CARDS -->
+
+          <!-- TEXTO-->
+          <h2 class="text-2xl sm:text-2xl text-white font-chicle mb-0">Você vai gostar ➜</h2>
+
+          <!-- IMAGENS DO CARROSSEL DE CARDS-->
+          <div class="overflow-x-auto whitespace-nowrap p-4 rounded-lg mb-0 m-0">
+            <div class="carrossel flex" style="margin-top: -20px;">
+              <a href="https://tvbrasil.ebc.com.br/os-dez-mandamentos" class="p-n1 flex-shrink-0 mx-n1">
+                <img src="https://br.web.img2.acsta.net/c_310_420/pictures/15/03/25/14/52/565841.jpg" alt="OS DEZ MANDAMENTOS" class="max-w-full h-auto">
+              </a>
+              <a href="https://globoplay.globo.com/o-rei-do-gado/t/mVhVGxGTQN/?origemId=91698" class="p-n1 flex-shrink-0 mx-n1">
+                <img src="https://br.web.img3.acsta.net/c_310_420/pictures/14/08/14/18/50/550874.jpg" alt="O REI DO GADO"
+                  class="max-w-full h-auto">
+              </a>
+              <a href="https://globoplay.globo.com/chocolate-com-pimenta/t/RgP9J5sC62/?origemId=91698" class="p-n1 flex-shrink-0 mx-n1">
+                <img src="https://br.web.img2.acsta.net/c_310_420/pictures/14/06/30/18/57/023140.jpg" alt="CHOCOLATE COM PIMENTA"
+                  class="max-w-full h-auto">
+              </a>
+              <a href="https://globoplay.globo.com/caminho-das-indias/t/xjb2kF6xCQ/?origemId=91698" class="p-n1 flex-shrink-0 mx-n1">
+                <img src="https://br.web.img2.acsta.net/c_310_420/pictures/21/12/06/19/08/2658279.jpg" alt="CAMINHO DAS ÍNDIAS" class="max-w-full h-auto">
+              </a>
+              <a href="https://globoplay.globo.com/o-cravo-e-a-rosa/t/7nhwhbjhgL/?origemId=91698" class="p-n1 flex-shrink-0 mx-n1">
+                <img src="https://br.web.img3.acsta.net/c_310_420/pictures/210/617/21061710_20131128120110281.jpg" alt="O CRAVO E A ROSA" class="max-w-full h-auto">
+              </a>
+              <a href="https://globoplay.globo.com/cordel-encantado/t/NBvxtkC5Bz/" class="p-n1 flex-shrink-0 mx-n1">
+                <img src="https://br.web.img3.acsta.net/c_310_420/pictures/14/08/06/17/58/453763.jpg" alt="CORDEL ENCANTADO" class="max-w-full h-auto">
+              </a>
+              <a href="https://globoplay.globo.com/avenida-brasil/t/C6VSHpmYWC/?origemId=91698" class="p-n1 flex-shrink-0 mx-n1">
+                <img src="https://br.web.img3.acsta.net/c_310_420/pictures/20/04/13/17/35/5737763.jpg" alt="AVENIDA BRASIL" class="max-w-full h-auto">
+              </a>
+            </div> <!-- FIM DA DIV CARROSSEL FLEX-->
+          </div> <!-- FIM IMAGENS DO CARROSSEL DE CARDS-->
+
+          <!-- FIM CARROSSEL DE CARDS -->
+
+          <!--
+            FOOTER
+          -->
+
+          <!-- ----------------------------------------------------------- -->
+          <!-- FOOTER (DEIXEI NO BODY PORQUE ACHEI QUE FICOU LEGAL, MAS QUALQUER COISA SÓ TIRAR)-->
+
+          <footer class="footer">
+            <div class="container">
+              <div class="row">
+                <div class="footer-col">
+                  <h4>Equipe</h4>
+                  <ul>
+                    <li><a href="https://www.linkedin.com/in/natanael-amaral-a8661b264/">Natanael A.</a></li>
+                    <li><a href="">Andrey V.</a></li>
+                    <li><a href="https://www.linkedin.com/in/isaias-silva-viana-b80ba329a/">Isaias V.</a></li>
+                  </ul>
+                </div>
+                <div class="footer-col">
+                  <h4>Utilitários</h4>
+                  <ul>
+                    <li><a href="https://github.com/amaraldzn/bremcena">Código fonte</a></li>
+                    <li><a href="#">API</a></li>
+                    <li><a href="#">Quem somos</a></li>
+                    <li><a href="#">Política de privacidade</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                  </ul>
+                </div>
+                <div class="footer-col">
+                  <h4>Atalhos</h4>
+                  <ul>
+                    <li><a href="../../../index.html">Página principal</a></li>
+                    <li><a href="#">Categorias</a></li>
+                    <li><a href="#">Lançamentos</a></li>
+                    <li><a href="#">Melhores</a></li>
+                  </ul>
+                </div>
+                <div class="footer-col">
+                  <h4>Siga-nos</h4>
+                  <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=100094559876343"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/AmaralDzn"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/amaraldsn/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/natanael-amaral-a8661b264/"><i class="fab fa-linkedin-in"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </footer>
+          <!-- ----------------------------------------------------------- -->
+
+
+        </div> <!-- FIM DA DIV STREAMING -->
+
+      </div> <!-- FIM DA DIV CLASSE MAIN__INFO -->
+
+    </main>
+
+
+
+</body> <!-- ACABOU O BODY, FML-->
+
+<!--
+  ------------------------------------------------
+  | SCRIPT DO ICONIFY
+  ------------------------------------------------
+  -->
+
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+
+<!--
+  ------------------------------------------------
+  | ÍCONES DO MENU MOBILE, NO CASO, É A LOGO DO BRASIL E O ICON DE LOGIN NO MOBILE QUE FICA NA NAV
+  ------------------------------------------------
+  -->
+
+<div class="logo-brasil">
+  <a href="../../../index.html">
+    <img src="../../images/logos/Logo sem fundo.png" alt="">
+  </a>
+  
+</div>
+
+<div class="person-container">
+  <a href="../login.html">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width: 45px; height: 50px; color: currentColor;">
+      <path fill="currentColor"
+        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4s-4 1.79-4 4s1.79 4 4 4m0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4" />
+    </svg>
+  </a>
+
+</div>
+
+<!--
+  ------------------------------------------------
+  |FIM, VENCEMO FML ;)
+  ------------------------------------------------
+  -->
+
+
+</html>
