@@ -50,7 +50,7 @@ Eu, Natanael, agradeço às seguintes pessoas que contribuíram para este projet
 <table>
   <tr>
     <td align="center">
-      <a href="[https://github.com/amaraldsn](https://www.linkedin.com/in/natanael-amaral-a8661b264/)" title="Perfil do Github">
+      <a href="https://www.linkedin.com/in/natanael-amaral-a8661b264" title="Perfil do Github">
         <img src="https://github.com/amaraldsn.png" width="100px;" alt="Foto do Amaral"/><br>
         <sub>
           <b>Amaral Dsn</b>
